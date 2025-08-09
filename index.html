@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domainer Core | Premium Domains for Your Business</title>
+    <title>Domainer Core | Premium Domains for Visionary Projects</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --text-primary: #1a1a1a;
-            --text-secondary: #4b5563;
-            --accent-primary: #2563eb;
-            --accent-hover: #1d4ed8;
-            --bg-light: #f9fafb;
+            --text-primary: #111827;
+            --text-secondary: #4B5563;
+            --accent-primary: #3B82F6;
+            --accent-hover: #2563EB;
+            --accent-light: #EFF6FF;
+            --bg-light: #F9FAFB;
+            --border-color: #E5E7EB;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
             --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --radius-lg: 12px;
+            --radius-md: 8px;
         }
         
         * {
@@ -41,17 +45,34 @@
         
         header {
             text-align: center;
-            padding: 80px 0 60px;
-            background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 100px 0 80px;
+            background: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%);
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3B82F6, #10B981, #3B82F6);
+            background-size: 200% auto;
+            animation: gradient 3s linear infinite;
         }
         
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.75rem;
             font-weight: 700;
             margin-bottom: 16px;
             line-height: 1.2;
-            color: #1a1a1a;
+            background: linear-gradient(to right, #111827, #3B82F6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s ease forwards;
@@ -69,18 +90,16 @@
         }
         
         section {
-            padding: 60px 0;
+            padding: 80px 0;
         }
         
         .section-title {
             text-align: center;
-            font-size: 1.75rem;
-            margin-bottom: 30px;
+            font-size: 2rem;
+            margin-bottom: 40px;
             font-weight: 600;
             position: relative;
             display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
         }
         
         .section-title:after {
@@ -98,32 +117,42 @@
             max-width: 700px;
             margin: 0 auto;
             text-align: center;
-            font-size: 1.1rem;
+            font-size: 1.125rem;
             color: var(--text-secondary);
             line-height: 1.7;
         }
         
-        .domains-section {
-            background-color: var(--bg-light);
-            border-radius: 12px;
-            padding: 40px;
-            margin: 40px auto;
+        .domains-cta {
+            background-color: var(--accent-light);
+            text-align: center;
+            border-radius: var(--radius-lg);
+            padding: 60px;
+            margin: 60px auto;
             max-width: 800px;
+            border: 1px solid var(--border-color);
             box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .domains-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
         }
         
         .domains-title {
-            text-align: center;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             margin-bottom: 20px;
             font-weight: 600;
+            color: var(--text-primary);
         }
         
         .domains-text {
-            text-align: center;
-            font-size: 1rem;
+            font-size: 1.125rem;
             color: var(--text-secondary);
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .email-link {
@@ -133,10 +162,10 @@
             font-weight: 500;
             transition: var(--transition);
             display: inline-block;
-            padding: 12px 28px;
-            border-radius: 8px;
+            padding: 14px 32px;
+            border-radius: var(--radius-md);
             box-shadow: var(--shadow-sm);
-            font-size: 1rem;
+            font-size: 1.125rem;
         }
         
         .email-link:hover {
@@ -145,9 +174,31 @@
             box-shadow: var(--shadow-md);
         }
         
-        .contact-info {
+        .contact-content {
             text-align: center;
-            margin-top: 30px;
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+        }
+        
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: var(--accent-light);
+            border-radius: var(--radius-md);
+            color: var(--accent-primary);
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact-email:hover {
+            background-color: #DBEAFE;
+        }
+        
+        .contact-email svg {
+            margin-right: 8px;
         }
         
         footer {
@@ -155,7 +206,7 @@
             padding: 40px 0;
             color: var(--text-secondary);
             font-size: 0.9rem;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-top: 1px solid var(--border-color);
         }
         
         @keyframes fadeInUp {
@@ -169,13 +220,22 @@
             }
         }
         
+        @keyframes gradient {
+            0% {
+                background-position: 0% center;
+            }
+            100% {
+                background-position: 200% center;
+            }
+        }
+        
         @media (max-width: 768px) {
             header {
-                padding: 60px 0 40px;
+                padding: 80px 0 60px;
             }
             
             h1 {
-                font-size: 2rem;
+                font-size: 2.25rem;
             }
             
             .tagline {
@@ -184,15 +244,20 @@
             }
             
             section {
-                padding: 50px 0;
+                padding: 60px 0;
             }
             
             .section-title {
-                font-size: 1.5rem;
+                font-size: 1.75rem;
             }
             
-            .domains-section {
-                padding: 30px 20px;
+            .domains-cta {
+                padding: 40px 24px;
+                margin: 40px auto;
+            }
+            
+            .domains-title {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -201,33 +266,33 @@
     <div class="container">
         <header>
             <h1>Domainer Core</h1>
-            <p class="tagline">Premium Domains for Your Business</p>
+            <p class="tagline">Strategic Domain Names for Digital Success</p>
         </header>
         
         <section class="about-section">
-            <h2 class="section-title">About My Domains</h2>
+            <h2 class="section-title">Premium Domains</h2>
             <div class="about-content">
-                <p>I specialize in a select collection of premium domain names that offer strong branding potential. Each domain is handpicked for its memorability and commercial value, owned outright by me, and available for immediate transfer.</p>
-                <p style="margin-top: 20px;">Whether you're launching a new venture or upgrading your online presence, these domains can give you an instant competitive edge.</p>
+                <p>Discover hand-selected domain names with strong branding potential and commercial value. Each domain is chosen for its memorability, clarity, and ability to elevate your online presence.</p>
+                <p style="margin-top: 20px;">Available for immediate transfer to help you launch or upgrade your digital project with confidence.</p>
             </div>
         </section>
         
-        <div class="domains-section">
-            <h3 class="domains-title">Current Domain Portfolio</h3>
-            <p class="domains-text">I maintain a curated selection of high-quality domains. While the collection is exclusive, each name has been carefully chosen for its potential.</p>
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="mailto:sales@domainercore.com" class="email-link">View Available Domains</a>
-            </div>
+        <div class="domains-cta">
+            <h3 class="domains-title">Explore Available Domains</h3>
+            <p class="domains-text">View the current selection of premium names ready for your next project or business venture.</p>
+            <a href="mailto:sales@domainercore.com" class="email-link">Request Domain List</a>
         </div>
         
         <section class="contact-section">
-            <h2 class="section-title">Direct Contact</h2>
-            <div class="about-content">
-                <p>For inquiries about domain availability or pricing, contact me directly. I respond personally to all serious inquiries.</p>
-                <div class="contact-info">
-                    <p><strong>Email:</strong> <a href="mailto:sales@domainercore.com" style="color: var(--accent-primary); text-decoration: none; font-weight: 500;">sales@domainercore.com</a></p>
-                    <p style="margin-top: 10px; font-size: 0.9rem;">(Direct owner communication)</p>
-                </div>
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-content">
+                <p>For pricing and availability inquiries, contact us directly for a prompt response.</p>
+                <a href="mailto:sales@domainercore.com" class="contact-email">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 8L10.8906 13.2604C11.5624 13.7083 12.4376 13.7083 13.1094 13.2604L21 8M5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19Z" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    sales@domainercore.com
+                </a>
             </div>
         </section>
     </div>
